@@ -1,3 +1,5 @@
+package switch_case;
+
 import java.util.*;
 
 public class SwitchCase {
@@ -26,7 +28,7 @@ public class SwitchCase {
                 System.out.println("Nothing To Do");
                 break;
             default:
-                System.out.println("Menu Not Found");
+                System.out.println("switch_case.Menu Not Found");
                 break;
         }
     }

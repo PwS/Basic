@@ -1,10 +1,12 @@
+package switch_case;
+
 import java.util.Scanner;
 
 public class Menu {
     public static void Menu() {
         try {
             Scanner input = new Scanner(System.in);
-            System.out.println("This Is Practice Switch Case as A Menu");
+            System.out.println("This Is Practice Switch Case as A switch_case.Menu");
             System.out.println("=======================================");
             System.out.println("Wanna Try ? ( Type Y / yes if want to try )");
             String decision = input.nextLine();

@@ -1,3 +1,5 @@
+package switch_case;
+
 class EvenOdd{
     public static void EvenOdd(int valInput){
         if(valInput%2==0){
