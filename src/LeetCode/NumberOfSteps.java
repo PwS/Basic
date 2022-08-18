@@ -1,3 +1,5 @@
+package LeetCode;
+
 class NumberOfSteps {
     public static int numberOfSteps(int num) {
         if (num == 0) {
