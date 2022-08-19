@@ -6,7 +6,7 @@ import java.security.*;
 public class IntToString {
     public static void main(String[] args) {
 
-        DoNotTerminate.forbidExit();
+        DoNotTerminatee.forbidExit();
 
         try {
             Scanner in = new Scanner(System.in);
@@ -31,14 +31,14 @@ public class IntToString {
             } else {
                 System.out.println("Wrong answer.");
             }
-        } catch (DoNotTerminate.ExitTrappedException e) {
+        } catch (DoNotTerminatee.ExitTrappedException e) {
             System.out.println("Unsuccessful Termination!!");
         }
     }
 }
 
 //The following class will prevent you from terminating the code using exit(0)!
-class DoNotTerminate {
+class DoNotTerminatee {
 
     public static class ExitTrappedException extends SecurityException {
 
