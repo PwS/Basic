@@ -19,7 +19,6 @@ public class SampleDemo implements Runnable {
         if (t == null) {
             t = new Thread(this, threadName);
             t.start();
-            ;
         }
     }
 }
