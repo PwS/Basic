@@ -22,7 +22,9 @@ public class SwitchCase {
                 System.out.println("Nothing To Do");
                 break;
             case 5:
-                System.out.println("Nothing To Do");
+                System.out.print("Input Variable : ");
+                int value = input.nextInt();
+                Factorial.getResultFactorial(value);
                 break;
             case 6:
                 System.out.println("Nothing To Do");
