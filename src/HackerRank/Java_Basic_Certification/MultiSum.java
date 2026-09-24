@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class MultiSum {
 
@@ -12,7 +11,7 @@ public class MultiSum {
     private static Integer sumValue(String val) {
         Integer result = 0;
 
-        String[] separated = val.split(" ");
+        String[] separated = val.trim().split(" +");
 
         List<Integer> valueInteger = convertListStringToListInteger(Arrays.asList(separated));
 
@@ -42,14 +41,8 @@ public class MultiSum {
     }
 
     private static boolean containNumbersOnly(String source) {
-        boolean result;
-        if (source.split(" ")[0].matches("[0-9]+")) {
-            return true;
-        }
-        Pattern pattern = Pattern.compile("[0-9]+.[0-9]+"); //correct pattern for both float and integer.
-        pattern = Pattern.compile("\\d+.\\d+"); //correct pattern for both float and integer.
-        result = pattern.matcher(source).matches();
-        return result;
+        // Every token must be a whole number; checking only the first one crashed on "1 a 2"
+        return source.trim().matches("-?\\d+( +-?\\d+)*");
     }
 
 

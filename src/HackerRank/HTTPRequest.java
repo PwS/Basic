@@ -39,26 +39,7 @@ class HTTPRequest {
                 }
 
 
-                JSONObject jsonObject = new JSONObject(response.toString());
-
-                List<HashMap> list = new ArrayList<>();
-                JSONArray array = jsonObject.getJSONArray("data");
-                for (int i = 0; i < array.length(); i++) {
-                    HashMap<String, String> value = new HashMap<>();
-                    value.put("title", array.getJSONObject(i).getString("title"));
-                    value.put("story_title", array.getJSONObject(i).getString("story_title"));
-
-                    list.add(value);
-                }
-
-                for (int i = 0; i < list.size(); i++) {
-                    if (list.get(i).get("title") == "null" && list.get(i).get("story_title") == "null") {
-                    } else {
-                        String value = (list.get(i).get("title") != "null" ? list.get(i).get("title") : list.get(i).get("story_title")).toString();
-                        result.add(value);
-                    }
-
-                }
+                result.addAll(titlesFrom(response.toString()));
 
                 in.close();
 
@@ -69,6 +50,29 @@ class HTTPRequest {
         }
 
         return result;
+    }
+
+    /**
+     * Returns each article's title, or its story_title when the title is null.
+     * Articles with neither are skipped.
+     * <p>
+     * The API returns JSON null for missing titles. getString() throws on null, which
+     * used to abort the whole loop and return an empty list, so optString() is used instead.
+     */
+    static List<String> titlesFrom(String json) {
+        List<String> titles = new ArrayList<>();
+        JSONArray articles = new JSONObject(json).getJSONArray("data");
+        for (int i = 0; i < articles.length(); i++) {
+            JSONObject article = articles.getJSONObject(i);
+            String title = article.optString("title", null);
+            String storyTitle = article.optString("story_title", null);
+            if (title != null) {
+                titles.add(title);
+            } else if (storyTitle != null) {
+                titles.add(storyTitle);
+            }
+        }
+        return titles;
     }
 
     public static void main(String[] args) throws IOException {

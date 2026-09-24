@@ -34,7 +34,11 @@ class Result {
 public class DateAndTime {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        // HackerRank sets OUTPUT_PATH; when running locally, write to the console instead
+        String outputPath = System.getenv("OUTPUT_PATH");
+        BufferedWriter bufferedWriter = new BufferedWriter(outputPath != null
+                ? new FileWriter(outputPath)
+                : new OutputStreamWriter(System.out));
 
         String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 

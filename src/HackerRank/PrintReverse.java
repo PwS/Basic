@@ -86,7 +86,7 @@ public class PrintReverse {
         reversePrint(llist.next);
 
         // After everything else is printed
-        System.out.println(llist.data+" ");
+        System.out.println(llist.data);
 
     }
 

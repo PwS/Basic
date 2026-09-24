@@ -3,9 +3,10 @@ package switch_case;
 import java.util.*;
 
 public class SwitchCase {
-    static Scanner input = new Scanner(System.in);
-
-    public static void switchCase(int pil) {
+    /**
+     * Uses the caller's Scanner: two Scanners on System.in would each buffer part of the input
+     */
+    public static void switchCase(int pil, Scanner input) {
         switch (pil) {
             case 1:
                 System.out.print("Input Variable : ");
@@ -24,7 +25,7 @@ public class SwitchCase {
             case 5:
                 System.out.print("Input Variable : ");
                 int value = input.nextInt();
-                Factorial.getResultFactorial(value);
+                System.out.println("Factorial of " + value + " is " + Factorial.getResultFactorial(value));
                 break;
             case 6:
                 System.out.println("Nothing To Do");

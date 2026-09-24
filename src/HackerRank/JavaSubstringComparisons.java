@@ -27,10 +27,8 @@ public class JavaSubstringComparisons {
     private static String reversedWords(String s) {
         String result = "";
         StringBuffer sb = new StringBuffer();
-        for (int i = s.length() - 1; i < s.length(); i--) {
-            if (i >= 0) {
-                sb.append(s.charAt(i));
-            }
+        for (int i = s.length() - 1; i >= 0; i--) {
+            sb.append(s.charAt(i));
         }
 
         result = sb.toString();

@@ -16,11 +16,11 @@ public class Menu {
                 System.out.println("3.Sided Elbow Triangle ");
                 System.out.println("4.Right-Right Elbow Triangle ");
                 System.out.println("5.Faktorial ");
-                System.out.println("6.Calculate the Area of ​​a Circle");
+                System.out.println("6.Calculate the Area of a Circle");
                 System.out.println("=======================================");
                 System.out.println("Choose Number : ");
                 int pil = input.nextInt();
-                SwitchCase.switchCase(pil);
+                SwitchCase.switchCase(pil, input);
                 System.out.println("Wanna Try Again ? (Y/YES) ");
                 decision = input.next();
             }

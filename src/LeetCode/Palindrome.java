@@ -1,19 +1,11 @@
 package LeetCode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Palindrome {
     public static boolean isThatPalindrome(int num) {
-
-        String[] splitChar = String.valueOf(num).split("");
-        List<String> reservedSplitChar = new ArrayList<>();
-
-        for (int i = splitChar.length - 1; i >= 0; i--) {
-            reservedSplitChar.add(splitChar[i]);
-        }
-
-        return Integer.parseInt(String.join("", reservedSplitChar)) == num;
+        // Compare as text: parsing the reversed digits back to int crashed on
+        // negative numbers ("121-") and on reversals larger than Integer.MAX_VALUE
+        String value = String.valueOf(num);
+        return new StringBuilder(value).reverse().toString().equals(value);
     }
 
     public static void main(String[] args) {

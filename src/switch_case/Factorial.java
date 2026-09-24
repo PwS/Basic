@@ -1,9 +1,12 @@
 package switch_case;
 
 class Factorial {
-    public static int getResultFactorial(int valInput) {
-        int result = 1;
-        for (int i = 1; i < valInput; i++) {
+    /**
+     * n! for n >= 0. Uses long, so results are exact up to 20!
+     */
+    public static long getResultFactorial(int valInput) {
+        long result = 1;
+        for (int i = 2; i <= valInput; i++) {
             result *= i;
         }
         return result;

@@ -8,14 +8,15 @@ public class StringTokens {
 
     private static void printEachTokenWithRegex(String input) {
 
-        input = input.trim();
+        String regex = "[!,?._'@ ]+";
 
-        if (input == "" || input == null || input.isEmpty()) {
+        // Remove leading/trailing delimiters, otherwise split() returns an empty first token
+        input = input.replaceAll("^" + regex + "|" + regex + "$", "");
+
+        if (input.isEmpty()) {
             System.out.print("0");
             return;
         }
-
-        String regex = "[!,?._'@ ]+";
 
 
         List<String> listValue = Arrays.asList(input.split(regex));
